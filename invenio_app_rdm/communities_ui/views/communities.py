@@ -3,12 +3,13 @@
 # Copyright (C) 2019-2024 CERN.
 # Copyright (C) 2019-2022 Northwestern University.
 # Copyright (C)      2022 TU Wien.
+# Copyright (C) 2024 Graz University of Technology.
 #
 # Invenio App RDM is free software; you can redistribute it and/or modify it
 # under the terms of the MIT License; see LICENSE file for more details.
 """Request views module."""
 
-from flask import abort, g, redirect, request, url_for
+from flask import abort, current_app, g, redirect, request, url_for
 from invenio_communities.views.communities import (
     HEADER_PERMISSIONS,
     render_community_theme_template,
@@ -28,7 +29,7 @@ def communities_detail(pid_value, community, community_ui):
     endpoint = "/api/communities/{pid_value}/records"
 
     return render_community_theme_template(
-        "invenio_communities/records/index.html",
+        current_app.config["COMMUNITIES_DETAILS_SEARCH"],
         theme=community_ui.get("theme", {}),
         community=community,
         community_ui=community_ui,

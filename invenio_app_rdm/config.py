@@ -5,6 +5,7 @@
 # Copyright (C) 2021      Graz University of Technology.
 # Copyright (C) 2022-2024 KTH Royal Institute of Technology.
 # Copyright (C) 2023      TU Wien
+# Copyright (C) 2024 Graz University of Technology.
 #
 # Invenio App RDM is free software; you can redistribute it and/or modify it
 # under the terms of the MIT License; see LICENSE file for more details.
@@ -985,6 +986,9 @@ COMMUNITIES_RECORDS_SEARCH = {
     "sort": ["bestmatch", "newest", "oldest", "version"],
 }
 """Community requests search configuration (i.e list of community requests)"""
+
+COMMUNITIES_DETAILS_SEARCH = "invenio_communities/records/index.html"
+"""Renders the search results of records in a specific community."""
 
 # Invenio-RDM-Records
 # ===================
