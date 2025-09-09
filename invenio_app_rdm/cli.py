@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # Copyright (C) 2022-2024 CERN.
+# Copyright (C) 2025 Graz University of Technology.
 #
 # Invenio-App-RDM is free software; you can redistribute it and/or modify
 # it under the terms of the MIT License; see LICENSE file for more details.
@@ -9,6 +10,7 @@
 
 import click
 from flask.cli import with_appcontext
+from invenio_access.context import context_identity
 from invenio_access.permissions import system_identity
 from invenio_records_resources.proxies import current_service_registry
 
@@ -18,6 +20,7 @@ from .fixtures import FixturesEngine, Pages
 @click.group()
 def rdm():
     """Invenio app rdm commands."""
+    context_identity.set(system_identity)
 
 
 @rdm.group()
